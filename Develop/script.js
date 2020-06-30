@@ -16,7 +16,6 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-//Create a generate password
 //Create a series of prompts with password criteria
 //Length of password between 8 and 128 characters
 //Lowercase
@@ -33,33 +32,57 @@ generateBtn.addEventListener("click", writePassword);
 
 var length = prompt("Choose a password length between 8 and 128 characters");
 
+  if (length < 8 || length > 128) {
+    alert("Password length has to be between 8 and 128 characters!");
+    location.reload()
+  }
+
 var charLowerCase = confirm("Include lowercase letters?");
 
 var lowercaseLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
+for(var i=0; i < lowercaseLetters.length; i++) {
+  console.log(index.of(Math.random[i]))
+}
+
 if (charLowerCase) {
-  alert("lowercase confirmed")
+  alert("Lowercase confirmed")
 }
 else {
-  alert("lowercase declined")
+  alert("Lowercase declined")
 }
 
 var charUpperCase = confirm("Include uppercase letters?");
 
+var uppercaseLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+
 if (charUpperCase) {
-  alert("uppercase confirmed")
+  alert("Uppercase confirmed")
 }
 else {
-  alert("uppercase declined")
+  alert("Uppercase declined")
 }
-
-
-var uppercaseLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
 var charNumeric = confirm("Include numbers?");
 
-var charSpecial = confirm("Include special characters?");
+var numbers = ["1","2","3","4","5","6","7","8","9","0"];
+
+if (charNumeric) {
+  alert("Numbers Confirmed")
+}
+else {
+  alert("Numbers Declined")
+}
+
+var charSpecial = confirm("Include Special Characters?");
 
 var specialChar = ["!","@","#","$","%","^","&","*","?"];
+
+if (charSpecial) {
+  alert("Special Characters Confirmed")
+}
+else {
+  alert("Special Characters Declined")
+}
 
 
