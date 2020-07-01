@@ -26,7 +26,7 @@ generateBtn.addEventListener("click", writePassword);
 //math.random and get a character
 //Password is displayed in alert or presented in the box
 
-var arrayOfArrays = "";
+var arrayOfArrays = [];
 
 var length = prompt("Choose a password length between 8 and 128 characters");
 
@@ -70,10 +70,10 @@ if (length < 8 || length > 128) {
   if (charLowerCase) {
     alert("Lowercase confirmed");
     for (var i = 0; i < length; i++) {
-      console.log(lowercaseLetters[Math.floor(Math.random() * lowercaseLetters.length)]);
-      console.log(lowercaseLetters.concat(arrayOfArrays));
+      var resultLower = lowercaseLetters[Math.floor(Math.random() * lowercaseLetters.length)];
+      arrayOfArrays.push(resultLower);
     }
-    
+    console.log(arrayOfArrays);
   }
 
 
