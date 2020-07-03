@@ -102,39 +102,28 @@ if (length < 8 || length > 128) {
 
   var charLowerCase = confirm("Include lowercase letters?");
 
- 
-
-  //If Lowercase confirmed. Generate random lowercase letters and add them to arrayOfArrays
+  //If Lowercase confirmed push to arrayOfArrays
   if (charLowerCase) {
     alert("Lowercase confirmed");
       arrayOfArrays.push(lowercaseLetters);
     }
   
 
-
-  var charUpperCase = confirm("Include uppercase letters?");
-
-  
+var charUpperCase = confirm("Include uppercase letters?");
 
   if (charUpperCase) {
     alert("Uppercase confirmed");
-    for (var i = 0; i < length; i++) {
-      var resultUpper = uppercaseLetters[Math.floor(Math.random() * uppercaseLetters.length)];
-      arrayOfArrays.push(resultUpper);
+      arrayOfArrays.push(uppercaseLetters);
     }
-  }
+  
 
   var charNumeric = confirm("Include numbers?");
 
- 
-
   if (charNumeric) {
     alert("Numbers confirmed");
-    for (var i = 0; i < length; i++) {
-      var resultNum = numbers[Math.floor(Math.random() * numbers.length)];
-      arrayOfArrays.push(resultNum);
+    arrayOfArrays.push(numbers);
     }
-  }
+  
 
   var charSpecial = confirm("Include Special Characters?");
 
@@ -142,65 +131,17 @@ if (length < 8 || length > 128) {
 
   if (charSpecial) {
     alert("Special characters confirmed");
-    for (var i = 0; i < length; i++) {
-      var resultSpecial = specialChar[Math.floor(Math.random() * specialChar.length)];
-      arrayOfArrays.push(resultSpecial);
+      arrayOfArrays.push(specialChar);
     }
-  }
 
   console.log(arrayOfArrays);
 
+function randomize() {
+for (var i = 0; i < length; i++) {
+  arrayOfArrays[Math.floor(Math.random() * arrayOfArrays.length)];
+}
+randomize();
+}
 
 
-
-
-
-
-
-  if (arrayOfArrays === length) {
-    console.log(finalPassword);
-  }
-  else {
-    finalPassword = arrayOfArrays.concat()
-    finalPassword.length = length;
-  }
-
-  console.log(finalPassword);
-  //set arrayOfArrays length equal to length 
-
-  var options = [lowercaseLetters, uppercaseLetters, numbers, specialChar]
-
-  checkPassword();
-
-    function checkPassword() {
-        var missingValueArray = [];
-        var containsAll = true;
-
-        options.forEach(function (e, i, a) {
-            var hasValue = false;
-            arrayOfArrays.forEach(function (e1, i1, a1) {
-                if (e.indexOf(e1) > -1) {
-                    hasValue = true;
-                }
-            });
-
-            if (!hasValue) {
-                missingValueArray = a;
-                containsAll = false;
-            }
-        });
-
-        if (!containsAll) {
-            arrayOfArrays[Math.floor(Math.random() * arrayOfArrays.length)] = missingValueArray.charAt(Math.floor(Math.random() * missingValueArray.length));
-            finalPassword = "";
-            arrayOfArrays.forEach(function (e, i, a) {
-                finalPassword += e;
-            });
-            checkPassword();
-        }
-    }
- 
-   
-  
-  {console.log(finalPassword);}
-    
+console.log(arrayOfArrays);
