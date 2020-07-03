@@ -110,6 +110,11 @@ if (length < 8 || length > 128) {
 
   if (charUpperCase) {
     alert("Uppercase confirmed");
+    for (var i = 0; i < length; i++) {
+      var resultUpper = uppercaseLetters[Math.floor(Math.random() * uppercaseLetters.length)];
+      arrayOfArrays.push(resultUpper);
+    }
+    console.log(arrayOfArrays);
   }
 
   var charNumeric = confirm("Include numbers?");
@@ -117,7 +122,12 @@ if (length < 8 || length > 128) {
   var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
   if (charNumeric) {
-    alert("Numbers Confirmed");
+    alert("Numbers confirmed");
+    for (var i = 0; i < length; i++) {
+      var resultNum = numbers[Math.floor(Math.random() * numbers.length)];
+      arrayOfArrays.push(resultNum);
+    }
+    console.log(arrayOfArrays);
   }
 
   var charSpecial = confirm("Include Special Characters?");
@@ -125,5 +135,18 @@ if (length < 8 || length > 128) {
   var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "?"];
 
   if (charSpecial) {
-    alert("Special Characters Confirmed");
+    alert("Special characters confirmed");
+    for (var i = 0; i < length; i++) {
+      var resultSpecial = specialChar[Math.floor(Math.random() * specialChar.length)];
+      arrayOfArrays.push(resultSpecial);
+    }
+    console.log(arrayOfArrays);
   }
+
+  function arrayBalance(equalize) {
+
+  arrayOfArrays = length
+  }
+
+  arrayBalance();
+  console.log(arrayOfArrays);
