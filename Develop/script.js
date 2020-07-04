@@ -100,6 +100,8 @@ if (length < 8 || length > 128) {
   location.reload();
 }
 
+console.log(arrayOfArrays);
+
   var charLowerCase = confirm("Include lowercase letters?");
 
   //If Lowercase confirmed push to arrayOfArrays
@@ -138,10 +140,10 @@ var charUpperCase = confirm("Include uppercase letters?");
 
 function randomize() {
 for (var i = 0; i < length; i++) {
-  arrayOfArrays[Math.floor(Math.random() * arrayOfArrays.length)];
+  password = arrayOfArrays[Math.floor(Math.random() * arrayOfArrays.length)];
 }
+
+}
+
 randomize();
-}
-
-
-console.log(arrayOfArrays);
+console.log(password);
