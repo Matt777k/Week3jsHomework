@@ -3,14 +3,18 @@ var generateBtn = document.querySelector("#generate");
 
 // Write finalPassword to the #finalPassword input
 function writePassword() {
-  var finalPassword = generatePassword();
-  var passwordText = document.querySelector("#finalPassword");
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-  passwordText.value = finalPassword;
+  passwordText.value = password;
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", function () {
+  writePassword();
+  reset();
+});
+
 
 //Create a series of prompts with finalPassword criteria
 //Length of finalPassword between 8 and 128 characters
@@ -19,7 +23,7 @@ generateBtn.addEventListener("click", writePassword);
 //Numbers
 //Special characters
 //Store selections for finalPassword generations
-//create one master array of choices using .push
+//create one master array of choices using .pushValues
 //Password matches selection
 //Password is generated - function
 //Loop is how many characters user selected
@@ -91,7 +95,9 @@ var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "?"];
 
 //choose length
-var length = prompt("Choose a finalPassword length between 8 and 128 characters");
+var length = prompt(
+  "Choose a finalPassword length between 8 and 128 characters"
+);
 
 //Selection of desired characters
 
@@ -102,48 +108,58 @@ if (length < 8 || length > 128) {
 
 console.log(arrayOfArrays);
 
-  var charLowerCase = confirm("Include lowercase letters?");
+var charLowerCase = confirm("Include lowercase letters?");
 
-  //If Lowercase confirmed push to arrayOfArrays
-  if (charLowerCase) {
-    alert("Lowercase confirmed");
-      arrayOfArrays.push(lowercaseLetters);
-    }
-  
+//If Lowercase confirmed pushValues to arrayOfArrays
+if (charLowerCase) {
+  alert("Lowercase confirmed");
+  arrayOfArrays.push.apply(arrayOfArrays, lowercaseLetters);
+}
 
 var charUpperCase = confirm("Include uppercase letters?");
 
-  if (charUpperCase) {
-    alert("Uppercase confirmed");
-      arrayOfArrays.push(uppercaseLetters);
-    }
-  
-
-  var charNumeric = confirm("Include numbers?");
-
-  if (charNumeric) {
-    alert("Numbers confirmed");
-    arrayOfArrays.push(numbers);
-    }
-  
-
-  var charSpecial = confirm("Include Special Characters?");
-
- 
-
-  if (charSpecial) {
-    alert("Special characters confirmed");
-      arrayOfArrays.push(specialChar);
-    }
-
-  console.log(arrayOfArrays);
-
-function randomize() {
-for (var i = 0; i < length; i++) {
-  password = arrayOfArrays[Math.floor(Math.random() * arrayOfArrays.length)];
+if (charUpperCase) {
+  alert("Uppercase confirmed");
+  arrayOfArrays.push.apply(arrayOfArrays, uppercaseLetters);
 }
 
+var charNumeric = confirm("Include numbers?");
+
+if (charNumeric) {
+  alert("Numbers confirmed");
+  arrayOfArrays.push.apply(arrayOfArrays, numbers);
 }
 
-randomize();
+var charSpecial = confirm("Include Special Characters?");
+
+if (charSpecial) {
+  alert("Special characters confirmed");
+  arrayOfArrays.push.apply(arrayOfArrays, specialChar);
+}
+
+
+var randomChar = ("");
+
+function generatePassword () {
+  
+
+  for (var i = 0; i < length; i++) {
+    randomChar += arrayOfArrays[
+      Math.floor(Math.random() * (arrayOfArrays.length -1))
+    ]; 
+  }
+  return randomChar;
+}
+
+function reset ()  {
+  randomChar = ("");
+  arrayOfArrays = [];
+  length = (0);
+}
+
+
+console.log(randomChar);
 console.log(password);
+
+   
+    
