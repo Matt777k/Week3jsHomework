@@ -112,31 +112,30 @@ var charLowerCase = confirm("Include lowercase letters?");
 
 //If Lowercase confirmed pushValues to arrayOfArrays
 if (charLowerCase) {
-  alert("Lowercase confirmed");
   arrayOfArrays.push.apply(arrayOfArrays, lowercaseLetters);
 }
 
 var charUpperCase = confirm("Include uppercase letters?");
 
 if (charUpperCase) {
-  alert("Uppercase confirmed");
   arrayOfArrays.push.apply(arrayOfArrays, uppercaseLetters);
 }
 
 var charNumeric = confirm("Include numbers?");
 
 if (charNumeric) {
-  alert("Numbers confirmed");
   arrayOfArrays.push.apply(arrayOfArrays, numbers);
 }
 
 var charSpecial = confirm("Include Special Characters?");
 
 if (charSpecial) {
-  alert("Special characters confirmed");
   arrayOfArrays.push.apply(arrayOfArrays, specialChar);
 }
 
+if (!charSpecial && !charUpperCase && !charLowerCase && !charNumeric) {
+  alert("You must select at least one character type");
+}
 
 var randomChar = ("");
 
@@ -158,8 +157,6 @@ function reset ()  {
 }
 
 
-console.log(randomChar);
-console.log(password);
 
    
     
